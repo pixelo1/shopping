@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- - mapper 태그에 namespace 속성은 연동시키고자 하는 Mapper 인터페이스명을 경로와 함께 명시해줍니다. 
+저는 com.vam.mapper.MemberMapper로 작성하였습니다. MemberMapper는 다음 순서에서 만듭니다. -->
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"httpp://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace = "com.pixelo_oracle.mapper.MemberMapper">
+<!-- 
+- mapper태그 내에 insert 태그를 새로 추가 insert 태그의 id속성은 'memberJoin'으로 
+memberJoin은 다음 순서에 만들 MemberMapper.java에서 회원가입 쿼리문을 호출하는 메서드 이름입
+insert 태그 내에 앞서 테스트하였던 insert 쿼리 명령문을 붙여 넣기 한 후 삽입될 데이터를 
+'#[VO에 저장된 데이터 이름}"으로 교체해줍니다.
+- adminCk는 회원가입 시 기본적으로 일반회원으로 등록하기 위해 0을 삽입 
+ money, point의 경우 추후에 회원이 물품을 구매하는 기능을 구현하기 위해 회원에게 
+ 10만 원과 5천 포인트를 기본으로 가질 수 있도록 하였습니다. -->
+ 	<insert id = "memberJoin">
+ 	insert into book_member values(#{memberId}, #{memberPw}, #{memberName}, #{memberMail},
+ 	 #{memberAddr1}, #{memberAddr2}, #{memberAddr3}, 0, sysdate, 100000, 5000 )
+ 	</insert>
+	</mapper>
